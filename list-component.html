@@ -1,0 +1,82 @@
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+<link rel="import" href="./bower_components/iron-demo-helpers/demo-snippet.html">
+<link rel="import" href="./bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+<!-- Simple Expand Collapse. -->
+<link rel="import" href="./demo/simple-expand-collapse.html">
+<link rel="import" href="musical-instrument.html">
+
+<dom-module id="list-component">
+  <!-- <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <simple-expand-collapse>
+      <div class="content">
+        <div>
+          <h1>[[name]]</h1>
+          <h2>[[classification]]</h2>
+          <p>[[description]]</p>
+        </div>
+      </div>
+    </simple-expand-collapse>
+  </template> -->
+  
+  <demo-snippet>
+    
+    <template>
+      <style>
+        simple-expand-collapse[horizontal] .content {
+          max-height: 250px;
+          overflow: auto;
+        }
+        </style>
+        <!-- Request -->
+        <iron-ajax
+          auto
+          url="https://mocki.io/v1/9e9e1f2c-2829-45b7-80c8-ddffcae2e06f"
+          handle-as="json"
+          on-response="responseData"
+          debounce-duration="300">
+        </iron-ajax>
+        <template is="dom-repeat" items="[[instruments]]">
+          <musical-instrument
+          name="[[item.name]]"
+          classification="[[item.classification]]"
+          description="[[item.description]]"
+          ></musical-instrument>
+        </template>
+    </template>
+
+  </demo-snippet>
+
+
+  <script>
+    /**
+     * `list-component`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ListComponent extends Polymer.Element {
+      static get is() { return 'list-component'; }
+      static get properties() {
+        return {
+          instruments: {
+            type: Array, value: function() {
+              return [];
+            }
+          }
+        };
+      }
+      responseData(event, request){
+        this.instruments = request.response?.Instruments
+      }
+    }
+
+    window.customElements.define(ListComponent.is, ListComponent);
+  </script>
+</dom-module>

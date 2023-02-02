@@ -1,0 +1,59 @@
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+<link rel="import" href="./bower_components/iron-demo-helpers/demo-snippet.html">
+<link rel="import" href="./bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+<!-- Simple Expand Collapse. -->
+<link rel="import" href="./demo/simple-expand-collapse.html">
+
+<dom-module id="musical-instrument">
+  <template>
+    <style>
+      :host {
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .content{
+        padding: 1rem 2rem;
+      }
+    </style>
+    <simple-expand-collapse btnname="[[name]]">
+      <div class="content">
+        <div>
+          <h1>[[name]]</h1>
+          <h2>[[classification]]</h2>
+          <p>[[description]]</p>
+        </div>
+      </div>
+    </simple-expand-collapse>
+  </template>
+  <script>
+    /**
+     * `musical-instrument`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class MusicalInstrument extends Polymer.Element {
+      static get is() { return 'musical-instrument'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'Sin Nombre...'
+          },
+          classification: {
+            type: String,
+            value: 'Por clasificar...'
+          },
+          description: {
+            type: String,
+            value: 'Sin descripción...'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MusicalInstrument.is, MusicalInstrument);
+  </script>
+</dom-module>
