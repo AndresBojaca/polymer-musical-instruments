@@ -2,11 +2,16 @@
 <link rel="import" href="./bower_components/iron-demo-helpers/demo-snippet.html">
 <link rel="import" href="./bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
 <!-- Simple Expand Collapse. -->
-<link rel="import" href="./demo/simple-expand-collapse.html">
+<link rel="import" href="./simple-expand-collapse.html">
 
 <dom-module id="musical-instrument">
   <template>
     <style>
+      h1,
+      h2,
+      p{
+        margin-top: 0;
+      }
       :host {
         display: block;
         margin-bottom: 1rem;
@@ -18,8 +23,11 @@
     <simple-expand-collapse btnname="[[name]]">
       <div class="content">
         <div>
+          <strong>Nombre: </strong>
           <h1>[[name]]</h1>
+          <strong>Clasificacion: </strong>
           <h2>[[classification]]</h2>
+          <strong>Descripción: </strong>
           <p>[[description]]</p>
         </div>
       </div>

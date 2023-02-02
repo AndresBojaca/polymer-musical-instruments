@@ -4,29 +4,29 @@
 <!-- Simple Expand Collapse. -->
 <link rel="import" href="./demo/simple-expand-collapse.html">
 <link rel="import" href="musical-instrument.html">
+<custom-style><style is="custom-style" include="demo-pages-shared-styles">
+
+  demo-snippet {
+    --demo-snippet-code: {
+      max-height: 250px;
+    }
+  }
+
+  simple-expand-collapse {
+    margin: 10px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+</style></custom-style>
 
 <dom-module id="list-component">
-  <!-- <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <simple-expand-collapse>
-      <div class="content">
-        <div>
-          <h1>[[name]]</h1>
-          <h2>[[classification]]</h2>
-          <p>[[description]]</p>
-        </div>
-      </div>
-    </simple-expand-collapse>
-  </template> -->
-  
   <demo-snippet>
     
     <template>
       <style>
+
         simple-expand-collapse[horizontal] .content {
           max-height: 250px;
           overflow: auto;
