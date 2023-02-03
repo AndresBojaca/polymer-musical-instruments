@@ -1,8 +1,7 @@
 <link rel="import" href="./bower_components/polymer/polymer-element.html">
 <link rel="import" href="./bower_components/iron-demo-helpers/demo-snippet.html">
 <link rel="import" href="./bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-<!-- Simple Expand Collapse. -->
-<link rel="import" href="./demo/simple-expand-collapse.html">
+<link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="musical-instrument.html">
 <custom-style><style is="custom-style" include="demo-pages-shared-styles">
 
@@ -11,11 +10,9 @@
       max-height: 250px;
     }
   }
-
   simple-expand-collapse {
     margin: 10px;
   }
-
   .content {
     padding: 15px;
   }
@@ -26,7 +23,6 @@
     
     <template>
       <style>
-
         simple-expand-collapse[horizontal] .content {
           max-height: 250px;
           overflow: auto;
@@ -66,9 +62,8 @@
       static get properties() {
         return {
           instruments: {
-            type: Array, value: function() {
-              return [];
-            }
+            type: Array,
+            value: []
           }
         };
       }
